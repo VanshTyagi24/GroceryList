@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang ="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Add Grocery</h1>
+<form method="post" th:action="@{/save}" >
+Name: <input type ="text" name="grocName"/><br/>
+Price: <input type ="text" name="price"/><br/>
+Category: 
+ <select name="category">
+  <option value="fruits">Fruits</option>
+  <option value="meat">Meat</option>
+  <option value="snacks">Snacks</option>
+  <option value="drinks">Drinks</option>
+</select> 
+
+
+<input type ="submit" value="Add Grocery">
+</form>
+<a th:href="@{/view}" >View Groceries</a>
+</body>
+</html>

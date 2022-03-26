@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Drinks</title>
+</head>
+<body>
+<h1>Drinks Page</h1>
+<table border="1">
+ <tr>
+   <th>Name</th>
+   <th>Price</th>
+   <th>Category</th>
+   
+ </tr>
+ 
+  <tr th:each="drink : ${drinks}">
+  		<td th:text="${drink.grocName}"></td>
+        <td th:text="${drink.price}"></td>
+        <td th:text="${drink.category}"></td>
+        <td><a href="" th:href="@{/edit/{id}(id=${drink.grocId})}">EDIT</a></td>
+       <td><a href="" th:href="@{/delete/{id}(id=${drink.grocId})}">DELETE</a></td>
+       <td><a href="" th:href="@{/loadCart/{id}(id=${drink.grocId})}">Add to Cart</a></td>
+        <!--   <td><a href="" th:href="@{/edit/{id}(id=${drink.id})}">EDIT</a></td>
+        <td><a href="" th:href="@{/delete/{id}(id=${drink.id})}">DELETE</a></td>-->
+  </tr>
+</table>
+
+<a th:href="@{/create}"> Add Drink</a>
+<br>
+<br>
+<form th:action="@{/view}" method="get">
+				<input type="submit" value="Groceries" />
+			</form>
+			<br>
+<p><a href="" th:href="@{/viewCart}">View Cart</a></p>			
+</body>
+</html>

@@ -1,0 +1,30 @@
+<html xmlns:th="http://www.thymeleaf.org" >
+<body>
+<h1>Cart</h1>
+<table border="1">
+<tr>
+<th>Item</th>
+<th>Amount</th>
+
+</tr>
+<tr th:each="cart:${cartList}">
+<td th:text= "${cart.item}"></td>
+<td th:text= "${cart.amount}"></td>
+<!--  <td><a href="" th:href="@{/deleteItem/{item}(item=${cart.item})/{amount}(amount=${cart.amount})}">DELETE</a></td>-->
+</tr>
+</table>
+
+<br>
+<form th:action="@{/view}" method="get">
+				<input type="submit" value="Groceries" />
+			</form>
+<form th:action="@{/MemberCheckout}" method="get">
+				<input type="submit" value="Member Checkout" />
+			</form>
+<form th:action="@{/checkout}" method="get">
+				<input type="submit" value="Checkout" />
+			</form>
+
+
+</body>
+</html>

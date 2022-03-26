@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang ="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Modify Grocery</h1>
+<form action="#" th:action="@{/modify}" th:object="${grocery}">
+<input type="hidden" th:field="*{grocId}"/><br/>
+Name: <input type ="text" th:field ="*{grocName}"/><br/>
+Price: <input type ="text" th:field ="*{price}"/><br/>
+Category: <input type ="text" th:field ="*{category}"/><br/>
+
+<input type ="submit" value="Update">
+</form>
+<a th:href="@{/view}" >Groceries</a>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="ISO-8859-1">
+<title>Guest Page</title>
+</head>
+<body>
+<h1 align="center">Welcome Guest's
+</h1>
+Go to the <a th:href="@{/}">Root Page</a>
+<div sec:authorize="isAuthenticated()">
+		
+		User's Name: <span sec:authentication="name"></span>
+		<br> 
+		Role: <span sec:authentication="principal.authorities"></span>
+		<br>
+		<br>		
+		<form th:action="@{/view}" method="get">
+				<input type="submit" value="Groceries" />
+			</form><br>
+		<div>
+			<form th:action="@{/logout}" method="post">
+				<input type="submit" value="Logout" />
+			</form>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<html xmlns:th="http://www.thymeleaf.org" >
+<body>
+<h1>Checkout Page</h1>
+<h1>Cart</h1>
+<h2>Members get an automatic 10% discount on total</h2>
+<table border="1">
+<tr>
+<th>Item</th>
+<th>Amount</th>
+
+</tr>
+<tr th:each="cart:${cartList}">
+<td th:text= "${cart.item}"></td>
+<td th:text= "${cart.amount}"></td>
+
+</tr>
+</table>
+
+<br>
+<form th:action="@{/editCart}" method="get">
+				<input type="submit" value="Edit Cart" />
+			</form>
+			<form th:action="@{/pay}" method="get">
+				<input type="submit" value="pay" />
+			</form>
+
+
+</body>
+</html>

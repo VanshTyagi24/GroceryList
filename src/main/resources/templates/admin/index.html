@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+Hello to the Main Admin Page
+Go to the <a th:href="@{/}">Root Page</a><br>
+<!--Go to the <a th:href="@{/admin/groceryList}">Grocery Page</a>-->
+<div sec:authorize="isAuthenticated()">
+		
+		User's Name: <span sec:authentication="name"></span>
+		<br> 
+		Roles: <span sec:authentication="principal.authorities"></span>
+		<br>
+		<br>
+	<form th:action="@{/view}" method="get">
+				<input type="submit" value="Groceries" />
+			</form>
+<br>	
+		
+		<div>
+			<form th:action="@{/logout}" method="post">
+				<input type="submit" value="Logout" />
+			</form>
+		</div>
+	</div>
+</body>
+</html>
